@@ -14,7 +14,12 @@ module.exports = {
     '@vue/eslint-config-prettier/skip-formatting'
   ],
   parserOptions: {
-    ecmaVersion: 'latest'
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   settings: {
     'import/resolver': {
@@ -29,6 +34,20 @@ module.exports = {
       {
         'newlines-between': 'always',
         alphabetize: { order: 'asc' }
+      }
+    ],
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index'] //需要忽略的组件名
+      }
+    ],
+    // import { type xxx } 进行类型的导入
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+        fixStyle: 'inline-type-imports'
       }
     ]
   }
