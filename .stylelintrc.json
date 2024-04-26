@@ -1,0 +1,31 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-vue"],
+  "plugins": ["stylelint-order"],
+  "overrides": [
+    {
+      "files": ["**/*.(css|html|vue)"],
+      "customSyntax": "postcss-html"
+    },
+    {
+      "files": ["*.less", "**/*.less"],
+      "customSyntax": "postcss-less",
+      "extends": ["stylelint-config-standard", "stylelint-config-recommended-vue"]
+    }
+  ],
+  "rules": {
+    "no-empty-source": null,
+    "selector-class-pattern": null,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "deep"]
+      }
+    ],
+    "order/order": [
+      "dollar-variables",
+      "custom-properties",
+      { "type": "at-rule", "hasBlock": false },
+      "declarations"
+    ]
+  }
+}
