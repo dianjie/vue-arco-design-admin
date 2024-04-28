@@ -26,7 +26,7 @@ module.exports = {
       typescript: true,
       node: true
     },
-    'import/extensions': ['.ts', '.tsx']
+    'import/extensions': ['.ts', '.tsx', '.js', '.jsx']
   },
   rules: {
     'import/order': [
@@ -36,12 +36,14 @@ module.exports = {
         alphabetize: { order: 'asc' }
       }
     ],
+    'vue/component-definition-name-casing': ['error', 'kebab-case'],
     'vue/multi-word-component-names': [
       'error',
       {
         ignores: ['index'] //需要忽略的组件名
       }
     ],
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
     // import { type xxx } 进行类型的导入
     '@typescript-eslint/consistent-type-imports': [
       'error',

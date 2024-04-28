@@ -1,0 +1,15 @@
+@prefix-cls: ~'@{prefix-var}-theme-color';
+
+.@{prefix-cls} {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px 0;
+  color: var(--color-text-1);
+
+  &-item {
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

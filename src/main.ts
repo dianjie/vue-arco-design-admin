@@ -1,12 +1,21 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import './styles/index.less'
 
 import App from './App.vue'
 import router from './router'
 
-const app = createApp(App)
+import { setupStore } from '@/stores'
 
-app.use(createPinia())
-app.use(router)
+const bootstrap = () => {
+  const app = createApp(App)
 
-app.mount('#app')
+  // 配置路由
+  app.use(router)
+
+  // 配置 store
+  setupStore(app)
+
+  app.mount('#app')
+}
+
+bootstrap()
