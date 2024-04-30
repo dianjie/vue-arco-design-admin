@@ -99,6 +99,7 @@ const modeProp = computed(() => {
   }
 
   &--top {
+    height: var(--di-header-height);
     width: 100%;
     position: relative;
     top: 0;
@@ -110,7 +111,7 @@ const modeProp = computed(() => {
   }
 
   .arco-menu {
-    height: 100%;
+    height: calc(100% - 1px);
   }
 }
 </style>
