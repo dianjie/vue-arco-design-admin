@@ -4,13 +4,22 @@
     <div :class="`${prefixCls}-item`">
       <div :class="`${prefixCls}-item__left`"> 背景色 </div>
       <div :class="`${prefixCls}-item__right`">
-        <a-color-picker v-model="store.bgColorTheme" format="hex" @change="changeBgColorTheme" />
+        <a-color-picker
+          v-model="store.bgColorTheme"
+          :show-preset="true"
+          :disabled-alpha="true"
+          :preset-colors="presetColor"
+          format="hex"
+          @change="changeBgColorTheme"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import presetColor from './preset-color'
+
 import { changeBgColorTheme } from '@/hooks/web/useBgColorTheme'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useConfigStore } from '@/stores'

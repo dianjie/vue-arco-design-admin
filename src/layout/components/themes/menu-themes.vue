@@ -4,13 +4,22 @@
     <div :class="`${prefixCls}-item`">
       <div :class="`${prefixCls}-item__left`"> 菜单色 </div>
       <div :class="`${prefixCls}-item__right`">
-        <a-color-picker v-model="store.menuTheme" format="hex" @change="changeMenuTheme" />
+        <a-color-picker
+          v-model="store.menuTheme"
+          :show-preset="true"
+          :disabled-alpha="true"
+          :preset-colors="presetColor"
+          format="hex"
+          @change="changeMenuTheme"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import presetColor from './preset-color'
+
 import { useDesign } from '@/hooks/web/useDesign'
 import { changeMenuTheme } from '@/hooks/web/useMenuTheme'
 import { useConfigStore } from '@/stores'

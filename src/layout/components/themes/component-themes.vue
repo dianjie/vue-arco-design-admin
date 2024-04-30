@@ -6,6 +6,9 @@
       <div :class="`${prefixCls}-item__right`">
         <a-color-picker
           v-model="store[`${item.type}Theme`]"
+          :show-preset="true"
+          :disabled-alpha="true"
+          :preset-colors="presetColor"
           format="hex"
           @change="(color) => changeTheme(color, item.type as ThemeType)"
         />
@@ -15,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import presetColor from './preset-color'
+
 import { changeTheme, type ThemeType } from '@/hooks/web/useComponentTheme'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useConfigStore } from '@/stores'
