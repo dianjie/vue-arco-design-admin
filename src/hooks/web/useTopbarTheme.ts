@@ -6,7 +6,7 @@ import { getDarkTheme, getLightTheme } from './useMenuTheme'
 
 import { prefix } from '@/config/design'
 import { useConfigStore } from '@/stores'
-import { getTextColor } from '@/utils/handleColor'
+import { getColorBorder, getTextColor } from '@/utils/handleColor'
 
 const { css, load, unload, isLoaded } = useStyleTag('', { id: 'global-topbar-theme' })
 // 先卸载，后面再加载，保证能覆盖默认的
@@ -15,7 +15,7 @@ unload()
 export const changeTopbarTheme = (color: string | null) => {
   let defaultColor = ''
   if (isDark.value) {
-    defaultColor = '#242424'
+    defaultColor = '#232324'
   } else {
     defaultColor = '#ffffff'
   }
@@ -34,13 +34,15 @@ export const changeTopbarTheme = (color: string | null) => {
     }
     return
   }
-  let temp = `--di-header-bg-color:${lowerCaseColor};--di-header-text-color:${getTextColor(lowerCaseColor)};`
 
   const Acolor = Color(lowerCaseColor)
+  const isDarkColor = Acolor.isDark()
+
+  let temp = `--di-header-bg-color:${lowerCaseColor};--di-header-text-color:${getTextColor(lowerCaseColor)}; --di-header-color-border: ${getColorBorder(Acolor, isDarkColor)};`
 
   const menuTemp = `.${prefix}-menu-wrapper.di-menu-wrapper--top {
     --color-menu-light-bg: ${lowerCaseColor};
-    ${Acolor.isDark() ? getDarkTheme() : getLightTheme()}
+    ${isDarkColor ? getDarkTheme() : getLightTheme(Acolor)}
   }`
   if (isDark.value) {
     temp = `body[arco-theme="dark"]{${temp}${menuTemp}}`

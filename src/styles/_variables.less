@@ -2,19 +2,21 @@ body {
   --di-header-height: 58px;
   --di-header-bg-color: var(--color-bg-2);
   --di-header-text-color: var(--color-text-1);
+  --di-header-color-border: #e5e6eb;
   --di-text-color: var(--color-text-1);
   --di-menu-side-width: 232px;
   --di-menu-collapsed-width: 48px;
+  --di-menu-color-border: #e5e6eb;
   --di-scrollbar-color: rgb(0 0 0 / 10%);
   --di-scrollbar-hover-color: rgb(0 0 0 / 30%);
   --di-scroll-track-color: #fff;
   --di-content-bg-color: var(--color-fill-2);
-}
 
-html {
   &[arco-theme='dark'] {
     --di-scrollbar-color: rgb(255 255 255 / 10%);
     --di-scrollbar-hover-color: rgb(255 255 255 / 30%);
     --di-scroll-track-color: #333;
+    --di-header-color-border: #333335;
+    --di-menu-color-border: #333335;
   }
 }

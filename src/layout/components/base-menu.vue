@@ -1,5 +1,5 @@
 <template>
-  <div :class="classCls">
+  <div :class="classCls" :style="{ 'z-index': menuModeIsOverlay ? '101' : '100' }">
     <a-menu
       :mode="modeProp"
       :collapsed="menuModeIsCollapse"
@@ -86,12 +86,12 @@ const modeProp = computed(() => {
   top: var(--di-header-height);
   z-index: 100;
   transform: none;
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid var(--di-menu-color-border);
+  transition: all 0.2s;
 
   &--default,
   &--overlay {
     transform: translate3d(calc(-1 * var(--di-menu-side-width)), 0, 0);
-    transition: transform 0.2s;
   }
 
   &--overlay {

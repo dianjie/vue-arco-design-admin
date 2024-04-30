@@ -101,7 +101,7 @@ const hasToggleSideMenu = computed(() => {
   background-color: var(--di-header-bg-color);
   color: var(--di-header-text-color);
   transition: height linear 0.2s;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--di-header-color-border);
 
   &--fixed {
     position: fixed;
@@ -119,6 +119,7 @@ const hasToggleSideMenu = computed(() => {
 
     &__title {
       font-size: 18px;
+      font-weight: 500;
     }
 
     .side-menu-handle {

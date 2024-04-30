@@ -39,7 +39,6 @@ const generateTokenList = (hex: string, type: ThemeType) => {
 
     temp += `--${typeKey[type]}-${item + 1}:${rgbText.replace(/rgb|\(|\)/g, '')} !important;\n`
   })
-  console.log(temp)
   return temp
 }
 

@@ -23,5 +23,20 @@ export const shadeHexColor = (color: string, percent: number) => {
 
 export const getTextColor = (hex: string) => {
   const tColor = Color(hex)
-  return tColor.isDark() ? 'rgba(255, 255, 255, 0.9)' : '#1d2129'
+  const temp = -177
+  return tColor.isDark()
+    ? 'rgba(255, 255, 255, 0.9)'
+    : tColor
+        .red(tColor.red() + temp)
+        .green(tColor.green() + temp + 11)
+        .blue(tColor.blue() + temp + 27)
+        .hex()
+}
+
+export const getColorBorder = (Acolor: Color, isDarkColor: boolean) => {
+  const num = isDarkColor ? 14 : -14
+  return Acolor.red(Acolor.red() + num)
+    .green(Acolor.green() + num)
+    .blue(Acolor.blue() + num)
+    .hex()
 }
