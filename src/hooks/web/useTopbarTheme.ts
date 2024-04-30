@@ -42,7 +42,7 @@ export const changeTopbarTheme = (color: string | null) => {
 
   const menuTemp = `.${prefix}-menu-wrapper.di-menu-wrapper--top {
     --color-menu-light-bg: ${lowerCaseColor};
-    ${isDarkColor ? getDarkTheme() : getLightTheme(Acolor)}
+    ${isDarkColor ? getDarkTheme(Acolor) : getLightTheme(Acolor)}
   }`
   if (isDark.value) {
     temp = `body[arco-theme="dark"]{${temp}${menuTemp}}`

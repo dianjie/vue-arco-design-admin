@@ -11,6 +11,23 @@ const { css, load, unload, isLoaded } = useStyleTag('', { id: 'global-menu-theme
 // 先卸载，后面再加载，保证能覆盖默认的
 unload()
 
+const getPrimaryColor = (bgColor: Color) => {
+  const configStore = useConfigStore()
+  const { brandTheme } = configStore
+  if (['AAA', 'AA'].includes(bgColor.level(Color(brandTheme)))) {
+    return ''
+  }
+  let temp = bgColor
+    .red(255 - bgColor.red())
+    .green(255 - bgColor.green())
+    .blue(255 - bgColor.blue())
+  if (!['AAA', 'AA'].includes(bgColor.level(temp))) {
+    temp = Color(bgColor.isDark() ? '#ffffff' : '#000000')
+  }
+  // 重新设置 选中颜色
+  return `--primary-6: ${temp.rgb().array().join()};`
+}
+
 export const getLightTheme = (Acolor: Color) => {
   const c_10 = -226
   const c_8 = -177
@@ -35,6 +52,7 @@ export const getLightTheme = (Acolor: Color) => {
   --color-fill-2:${getHex(c_2, 1, 3)};
   --color-fill-3: ${getHex(c_3, 1, 6)};
   --color-fill-4: ${getHex(c_4, 4, 11)};
+  ${getPrimaryColor(Acolor)}
   `
 
   // return `--color-text-1: #1d2129;
@@ -48,7 +66,7 @@ export const getLightTheme = (Acolor: Color) => {
   // `
 }
 
-export const getDarkTheme = () => {
+export const getDarkTheme = (Acolor: Color) => {
   return `--color-text-1: rgba(255, 255, 255, 0.9);
   --color-text-2: rgba(255, 255, 255, 0.7);
   --color-text-3: rgba(255, 255, 255, 0.5);
@@ -57,6 +75,7 @@ export const getDarkTheme = () => {
   --color-fill-2: rgba(255, 255, 255, 0.08);
   --color-fill-3: rgba(255, 255, 255, 0.12);
   --color-fill-4: rgba(255, 255, 255, 0.16);
+  ${getPrimaryColor(Acolor)}
   `
 }
 
@@ -87,7 +106,7 @@ export const changeMenuTheme = (color: string | null) => {
   let temp = `.${prefix}-menu-wrapper:not(.di-menu-wrapper--top) {
     --color-menu-light-bg: ${lowerCaseColor};
     --di-menu-color-border: ${getColorBorder(Acolor, isDarkColor)};
-    ${isDarkColor ? getDarkTheme() : getLightTheme(Acolor)}
+    ${isDarkColor ? getDarkTheme(Acolor) : getLightTheme(Acolor)}
   }`
   if (isDark.value) {
     temp = `body[arco-theme="dark"]{${temp}}`
