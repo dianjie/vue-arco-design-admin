@@ -1,5 +1,9 @@
-import { createApp } from 'vue'
+// eslint-disable-next-line import/no-unresolved
+import 'uno.css'
+
 import './styles/index.less'
+
+import { createApp } from 'vue'
 
 import App from './App.vue'
 import router from './router'

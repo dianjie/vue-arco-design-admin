@@ -3,6 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { vitePluginForArco } from '@arco-plugins/vite-vue'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import UnoCSS from 'unocss/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -17,6 +18,7 @@ export default defineConfig({
     vue(),
     vueJsx(),
     VueDevTools(),
+    UnoCSS(),
     vitePluginForArco({
       style: 'css'
     }),
