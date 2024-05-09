@@ -111,6 +111,10 @@ const modeProp = computed(() => {
 
     .arco-menu-horizontal {
       height: calc(100% - 1px);
+
+      .arco-menu-inner {
+        overflow: initial;
+      }
     }
   }
 
