@@ -23,3 +23,13 @@ const { prefixCls } = useDesign('layout-wrapper')
 const configStore = useConfigStore()
 const { menuModeIsTop } = storeToRefs(configStore)
 </script>
+
+<style lang="less">
+@prefix-cls: ~'@{prefix-var}-layout-wrapper';
+
+.@{prefix-cls} {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--di-content-bg-color);
+}
+</style>

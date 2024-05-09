@@ -1,12 +1,16 @@
 <template>
   <a-divider>界面功能</a-divider>
   <div class="flex justify-between my-4">
-    <span> 固定侧边菜单</span>
+    <span> 固定侧边菜单 </span>
     <a-switch
       v-model="store.sidebarFixed"
       :disabled="sidebarFixedDisabled"
       @change="(val) => sidebarFixedChange(store, val)"
     />
+  </div>
+  <div class="flex justify-between my-4">
+    <span> 多标签 </span>
+    <a-switch v-model="store.showTabBar" />
   </div>
 </template>
 

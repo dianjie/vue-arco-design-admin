@@ -61,6 +61,12 @@ const useConfigStore = defineStore('app-config', {
     },
     getBgColorTheme(): string {
       return this.bgColorTheme
+    },
+    getShowTabBar(): boolean {
+      return this.showTabBar
+    },
+    getOpenKeepAlive(): boolean {
+      return this.openKeepAlive
     }
   },
   actions: {

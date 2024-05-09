@@ -111,7 +111,7 @@ const modeProp = computed(() => {
   }
 
   .arco-menu {
-    height: calc(100% - 1px);
+    height: 100%;
   }
 }
 </style>

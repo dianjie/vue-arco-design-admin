@@ -14,5 +14,7 @@ export interface ConfigState {
   sidebarFixed: boolean
   grayMode: boolean
   colorWeak: boolean
+  showTabBar: boolean
+  openKeepAlive: boolean
   [key: string]: any
 }

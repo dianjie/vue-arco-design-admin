@@ -1,13 +1,8 @@
 <template>
   <div :class="classCls">
+    <tab-bar v-if="getShowTabBar" />
     <div :class="`${prefixCls}-content`">
-      <router-view>
-        <template #default="{ Component, route }">
-          <keep-alive>
-            <component :is="Component" :key="route.fullPath" />
-          </keep-alive>
-        </template>
-      </router-view>
+      <page-layout />
     </div>
   </div>
 </template>
@@ -15,7 +10,9 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { computed, inject, unref } from 'vue'
-import { RouterView } from 'vue-router'
+
+import TabBar from './base-tabbar.vue'
+import PageLayout from './page/index.vue'
 
 import { useDesign } from '@/hooks/web/useDesign'
 import { useConfigStore } from '@/stores'
@@ -25,7 +22,7 @@ const { prefixCls } = useDesign('layout-main')
 const sideMenu = inject<boolean>('sideMenu')
 
 const store = useConfigStore()
-const { menuModeIsDefault, menuModeIsTop, menuModeIsCollapse } = storeToRefs(store)
+const { menuModeIsDefault, menuModeIsTop, menuModeIsCollapse, getShowTabBar } = storeToRefs(store)
 
 const classCls = computed(() => [
   {
@@ -42,15 +39,6 @@ const classCls = computed(() => [
 
 .@{prefix-cls} {
   padding-top: var(--di-header-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-
-  &-content {
-    padding: 1rem;
-    background-color: var(--di-content-bg-color);
-  }
 
   &--left-spacing {
     margin-left: var(--di-menu-side-width);

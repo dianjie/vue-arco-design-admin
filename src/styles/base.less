@@ -20,7 +20,7 @@ body {
 html,
 body {
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   scrollbar-color: var(--di-scrollbar-color) transparent;
   scrollbar-width: thin;
 
@@ -31,6 +31,11 @@ body {
   &.gray-mode {
     filter: grayscale(100%);
   }
+}
+
+#app {
+  width: 100%;
+  height: 100%;
 }
 
 // Safari/Chrome 中滚动条样式设置
@@ -56,22 +61,6 @@ body {
   min-height: 1.5em;
 }
 
-.flex {
-  display: flex !important;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.flex-nowrap {
-  flex-wrap: nowrap !important;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.my-4 {
-  margin: 16px 0;
+.content-bg {
+  background-color: var(--color-bg-2);
 }

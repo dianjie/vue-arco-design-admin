@@ -13,7 +13,9 @@ export const defaultSettings: ConfigState = {
   bgColorTheme: '#eeeeee',
   sidebarFixed: false,
   grayMode: false,
-  colorWeak: false
+  colorWeak: false,
+  showTabBar: true,
+  openKeepAlive: true
 }
 
 // css 前缀
