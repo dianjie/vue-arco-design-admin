@@ -1,1 +1,0 @@
-import{d as n,u as r,b as s,o as c,c as p}from"./index-DBfpF60k.js";const f=n({__name:"index",setup(u){const{currentRoute:e,replace:t}=r(),{params:o}=s(e),a=o.path;return t({path:a}),(_,m)=>(c(),p("div"))}});export{f as default};
