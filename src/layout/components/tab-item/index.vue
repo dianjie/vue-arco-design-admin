@@ -48,6 +48,8 @@
 </template>
 
 <script lang="ts" setup>
+// 手动引入tag的样式，@arco-plugins/vite-vue 开发模式是全引入的
+import '@arco-design/web-vue/es/tag/style/css.js'
 import { type PropType, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
