@@ -89,6 +89,10 @@ const modeProp = computed(() => {
   border-right: 1px solid var(--di-menu-color-border);
   transition: all 0.2s;
 
+  .arco-menu {
+    height: 100%;
+  }
+
   &--default,
   &--overlay {
     transform: translate3d(calc(-1 * var(--di-menu-side-width)), 0, 0);
@@ -104,14 +108,14 @@ const modeProp = computed(() => {
     position: relative;
     top: 0;
     border-right-width: 0;
+
+    .arco-menu-horizontal {
+      height: calc(100% - 1px);
+    }
   }
 
   &--collapse {
     width: var(--di-menu-collapsed-width);
-  }
-
-  .arco-menu {
-    height: 100%;
   }
 }
 </style>
