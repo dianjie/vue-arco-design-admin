@@ -1,0 +1,1 @@
+import{_ as t}from"./plugin-vue_export-helper-DlAUqK2U.js";import{o as e,c as r,F as a,r as c,a as n}from"./index-BU0Co-7F.js";const o={},_={class:"p-4"};function d(i,f){return e(),r("div",_,[(e(),r(a,null,c(166,s=>n("div",{key:s}," 哈哈哈，欢迎使用 ")),64))])}const p=t(o,[["render",d]]);export{p as default};
