@@ -6,7 +6,6 @@
 }
 
 body {
-  color: var(--di-text-color);
   transition:
     color 0.5s,
     background-color 0.5s;
@@ -63,4 +62,11 @@ body {
 
 .content-bg {
   background-color: var(--color-bg-2);
+}
+
+// 补充 drawer 样式，修复夜间模式标题颜色
+.arco-drawer {
+  &-header {
+    color: var(--color-text-1);
+  }
 }

@@ -40,6 +40,10 @@ const classCls = computed(() => [
 .@{prefix-cls} {
   padding-top: var(--di-header-height);
 
+  &-content {
+    color: var(--di-text-color);
+  }
+
   &--left-spacing {
     margin-left: var(--di-menu-side-width);
     transition: margin-left 0.2s;
